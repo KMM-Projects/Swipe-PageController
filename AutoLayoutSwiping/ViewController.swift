@@ -8,6 +8,12 @@
 
 import UIKit
 
+
+
+extension UIColor {
+    static var mainPink = UIColor(red: 233/255, green: 68/255, blue: 133/255, alpha: 1)
+}
+
 class ViewController: UIViewController {
 
     //lets Avoid Polluting ViewDidLoad
@@ -64,7 +70,7 @@ class ViewController: UIViewController {
         let pc  = UIPageControl()
         pc.currentPage = 0
         pc.numberOfPages = 4
-        pc.currentPageIndicatorTintColor = .red
+        pc.currentPageIndicatorTintColor = .mainPink
         pc.pageIndicatorTintColor = UIColor(red: 249/255, green: 207/255, blue: 224/255, alpha: 1)
         return pc
     }()
