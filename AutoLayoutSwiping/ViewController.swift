@@ -25,8 +25,14 @@ class ViewController: UIViewController {
     
     let descriptionTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "Join us today in our fun and game!"
-        textView.font = UIFont.boldSystemFont(ofSize: 18)
+        
+        let attibutedText = NSMutableAttributedString(string: "Join us today in our fun and game!", attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 18)])
+        
+        attibutedText.append(NSAttributedString(string: "\n\n\nAre you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our store soon.", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13), NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)]))
+        textView.attributedText = attibutedText
+        //old style
+//        textView.text = "Join us today in our fun and game!"
+//        textView.font = UIFont.boldSystemFont(ofSize: 18)
         textView.textAlignment = .center
         textView.isEditable = false
         textView.isScrollEnabled = false
@@ -54,7 +60,7 @@ class ViewController: UIViewController {
     private func setupLayout() {
         
         let topImageContainerView = UIView()
-        topImageContainerView.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+       // topImageContainerView.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         view.addSubview(topImageContainerView)
        // topImageContainerView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         //enable autolayout
@@ -82,13 +88,13 @@ class ViewController: UIViewController {
 //        bearImgeView.widthAnchor.constraint(equalToConstant: 200).isActive = true
 //        bearImgeView .heightAnchor.constraint(equalToConstant: 200).isActive = true
 //
-//        //descriptionView
-//        descriptionTextView.topAnchor.constraint(equalTo: bearImgeView.bottomAnchor, constant: 60).isActive = true
-//        descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-//        descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-//        descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-//
-//
+        //descriptionView
+        descriptionTextView.topAnchor.constraint(equalTo: topImageContainerView.bottomAnchor).isActive = true
+        descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true // this needs to be a negative value
+        descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+
+
     }
 
 }
