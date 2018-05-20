@@ -12,13 +12,24 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       // App entry point
+        
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "bear_first"))
+        view.addSubview(imageView)
+      //   imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50) programitically positioning
+        
+        //this enables our constraints autolayout for our imageView
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
 
 }
